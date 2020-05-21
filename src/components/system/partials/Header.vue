@@ -19,11 +19,17 @@
     </div>
 </template>
 <script>
+
+import Categories from '@/graphql/Categories.gql'
+
 export default {
     data() {
         return {
             
         }
+    },
+    apollo: {
+         categories: Categories,
     },
     methods: {
        
