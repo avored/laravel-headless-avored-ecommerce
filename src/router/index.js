@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Guest from '../middleware/guest';
+import Auth from '../middleware/auth';
 
 Vue.use(VueRouter)
 
@@ -8,7 +10,8 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
   },
   {
     path: '/about',
@@ -16,7 +19,8 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
   }
 ]
 
