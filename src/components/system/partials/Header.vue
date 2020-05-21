@@ -1,15 +1,15 @@
 <template>
     <div>
-        <header class="flex items-center justify-between py-3 px-3 shadow-lg relative">
+        <header class="flex items-center justify-between py-3 px-3 shadow border-gray-500 relative">
               <h3 class="text-xl text-red-900">
                   <router-link :to="{ name: 'home'}">
                     <img alt="AvoRed logo" class="w-8 h-8 inline-block"  src="@/assets/logo.svg" /> voRed
                   </router-link>
               </h3>
               <nav class="hidden md:flex">
-                    <template v-if="!isNil(categories) && categories.data.length > 0" >
+                    <template v-if="!isNil(AllCategories) && AllCategories.data.length > 0" >
                         <router-link :to="{ name: 'category.show', params: { slug: category.slug }}"
-                            v-for="(category, index) in categories.data" :key="index" 
+                            v-for="(category, index) in AllCategories.data" :key="index" 
                             class="text-gray-800 hover:text-gray-500 py-3 px-6">
                             {{ category.name }}
                         </router-link>
@@ -25,7 +25,7 @@
 </template>
 <script>
 import isNil from 'lodash/isNil'
-import Categories from '@/graphql/Categories.gql'
+import AllCategories from '@/graphql/Categories.gql'
 
 export default {
     data() {
@@ -34,7 +34,7 @@ export default {
         }
     },
     apollo: {
-         categories: Categories,
+         AllCategories: AllCategories,
     },
     methods: {
        isNil,

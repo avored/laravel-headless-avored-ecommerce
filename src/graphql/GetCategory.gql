@@ -1,0 +1,7 @@
+#import './CategoryFragment.gql'
+
+query GetCategory($slug: String!) {
+  CategoryQuery(slug: $slug) {
+      ...Category
+  }
+}
