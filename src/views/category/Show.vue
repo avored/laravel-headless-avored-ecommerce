@@ -4,7 +4,7 @@
       <ApolloQuery
         :query="require('@/graphql/GetCategory.gql')"
         :variables="{
-          slug: 'avored',
+          slug: $route.params.slug,
         }"
         class="form"
         @done="category = {}"
