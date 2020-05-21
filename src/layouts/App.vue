@@ -1,14 +1,13 @@
 <template>
-    <div>
-        <div class="bg-gray-200 p-6">
-            <div class="bg-white flex flex-col font-sans">
-                <div class="container mx-auto px-8">
-                    <app-header></app-header>
-                    <main class="flex flex-col-reverse sm:flex-row jusitfy-between items-center py-12">
-                        <slot/>
-                    </main>
-                    <app-footer></app-footer>
-                </div>
+    <div class="px-5">
+        <div class="bg-gray-200">
+            <div class="bg-white flex flex-col">
+                
+                <app-header></app-header>
+                <main class="flex jusitfy-between items-center px-3 py-10">
+                    <slot/>
+                </main>
+                <app-footer></app-footer>
             </div>
         </div>
     </div>

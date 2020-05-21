@@ -9,13 +9,13 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
     meta: {'middleware': {guest: Guest}, 'layout': 'app' }
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/category/:slug',
+    name: 'category.show',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

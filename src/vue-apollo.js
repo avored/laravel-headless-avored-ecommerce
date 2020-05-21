@@ -19,7 +19,8 @@ const defaultOptions = {
   httpEndpoint,
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
-  wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || 'ws://localhost:4000/graphql',
+  //wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || 'ws://localhost:4000/graphql',
+  wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || null,
   // wsEndpoint: process.env.VUE_APP_GRAPHQL_WS || null,
   // LocalStorage token
   tokenName: AUTH_TOKEN,

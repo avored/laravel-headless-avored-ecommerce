@@ -2,8 +2,6 @@ fragment Category on Category {
     id
     name
     slug
-    meta_title
-    meta_desciption
     created_at
     updated_at
 }
