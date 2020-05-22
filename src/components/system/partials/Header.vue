@@ -14,6 +14,20 @@
                             {{ category.name }}
                         </router-link>
                     </template>
+                    <router-link :to="{name: 'cart.show'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                        Cart
+                    </router-link>
+                    <router-link 
+                        :to="{name: 'checkout.show'}" 
+                        class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                        Checkout
+                    </router-link>
+                    <router-link :to="{name: 'login'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                        Login
+                    </router-link>
+                    <router-link :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                        Register
+                    </router-link>
               </nav>
               <button class="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">
                   <span class="w-5 h-px mb-1 bg-orange-500"></span>

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Guest from '../middleware/guest';
-import Auth from '../middleware/auth';
+import Guest from '../middleware/guest'
+// import Auth from '../middleware/auth'
 
 Vue.use(VueRouter)
 
@@ -17,7 +17,31 @@ Vue.use(VueRouter)
     path: '/category/:slug',
     name: 'category.show',
     component: () => import('../views/category/Show.vue'),
-    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
+  },
+  {
+    path: '/cart',
+    name: 'cart.show',
+    component: () => import('../views/cart/Show.vue'),
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
+  },
+  {
+    path: '/checkout',
+    name: 'checkout.show',
+    component: () => import('../views/checkout/Show.vue'),
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/auth/Login.vue'),
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/auth/Register.vue'),
+    meta: {'middleware': {guest: Guest}, 'layout': 'app' }
   }
 ]
 

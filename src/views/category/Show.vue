@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <div class="py-10">
       <ApolloQuery
         :query="require('@/graphql/GetCategory.gql')"
@@ -9,12 +9,15 @@
         class="form"
         @done="category = {}"
       >
-        <template slot-scope="{ result: { data } }">
+        <template slot-scope="{ result: { data } }" v-if="data">
           <h1 class="text-2xl uppercase mb-8">{{ data.CategoryQuery.name }}</h1>
           <div class="px-4">
-            <div class="block md:flex justify-between md:-mx-2">
+            <div class="block flex-wrap md:flex justify-between md:-mx-2">
               <template v-if="products.length > 0">
-                  <product-card v-for="(product, index) in products" :key="index">
+                  <product-card 
+                    v-for="(product, index) in data.CategoryQuery.products.data"
+                    :product="product"
+                    :key="index">
 
                   </product-card>
 
