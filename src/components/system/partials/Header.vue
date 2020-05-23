@@ -25,10 +25,10 @@
                     <router-link v-if="!isAuth()" :to="{name: 'login'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Login
                     </router-link>
-                    <router-link v-if="!isAuth()"  :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                    <router-link v-if="!isAuth()" :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Register
                     </router-link>
-                    <router-link :to="{name: 'account.dashboard'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                    <router-link v-if="isAuth()" :to="{name: 'account.dashboard'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Account
                     </router-link>
               </nav>
