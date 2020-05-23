@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Guest from '../middleware/guest'
-// import Auth from '../middleware/auth'
+import Auth from '../middleware/auth'
 
 Vue.use(VueRouter)
 
@@ -42,7 +42,31 @@ Vue.use(VueRouter)
     name: 'register',
     component: () => import('../views/auth/Register.vue'),
     meta: {'middleware': {guest: Guest}, 'layout': 'app' }
-  }
+  },
+  {
+    path: '/account',
+    name: 'account.dashboard',
+    component: () => import('../views/account/Dashboard.vue'),
+    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
+  },
+  {
+    path: '/account/orders',
+    name: 'account.orders',
+    component: () => import('../views/account/Order.vue'),
+    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
+  },
+  {
+    path: '/account/addresses',
+    name: 'account.addresses',
+    component: () => import('../views/account/Address.vue'),
+    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
+  },
+  {
+    path: '/account/edit-profile',
+    name: 'account.edit.profile',
+    component: () => import('../views/account/EditProfile.vue'),
+    meta: {'middleware': {auth: Auth}, 'layout': 'app' }
+  },
 ]
 
 const router = new VueRouter({

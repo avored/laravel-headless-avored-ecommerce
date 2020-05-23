@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="px-3">
     <div class="py-10">
           <h1 class="text-2xl uppercase mb-8">HOME PAGe</h1>
           <div class="px-4">

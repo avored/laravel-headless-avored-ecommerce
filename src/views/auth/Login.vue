@@ -1,20 +1,15 @@
 <template>
-    <div class="w-full">
+    <div class="px-3 w-full">
       <div class="bg-gray-50 w-full mx-auto flex flex-col justify-center sm:px-6 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-md">
                 <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
                 Sign in to your account
                 </h2>
-                <p class="mt-2 text-center text-sm leading-5 text-gray-600 max-w">
-                Or
-                <a href="#" class="font-medium text-red-600 hover:text-red-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    start your 14-day free trial
-                </a>
-                </p>
+                
             </div>
 
             <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div class="bg-white border border-gray-300 py-8 px-4 shadow sm:rounded-lg sm:px-10">
                 <form action="#" method="POST">
                     <div>
                     <label for="email" class="block text-sm font-medium leading-5 text-gray-700">

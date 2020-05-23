@@ -28,6 +28,9 @@
                     <router-link :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Register
                     </router-link>
+                    <router-link :to="{name: 'account.dashboard'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                        Account
+                    </router-link>
               </nav>
               <button class="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">
                   <span class="w-5 h-px mb-1 bg-orange-500"></span>

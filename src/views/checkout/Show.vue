@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px3">
       <h1>Checkout Page</h1>
   </div>
 </template>

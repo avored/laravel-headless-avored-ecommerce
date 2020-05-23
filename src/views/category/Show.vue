@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-3">
     <div class="py-10">
       <ApolloQuery
         :query="require('@/graphql/GetCategory.gql')"

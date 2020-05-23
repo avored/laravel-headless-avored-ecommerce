@@ -4,7 +4,7 @@
             <div class="bg-white flex flex-col">
                 
                 <app-header></app-header>
-                <main class="flex jusitfy-between items-center px-3 py-10">
+                <main class="flex jusitfy-between items-center py-10">
                     <slot/>
                 </main>
                 <app-footer></app-footer>

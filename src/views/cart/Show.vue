@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-3">
       <h1>Cart Page</h1>
 
   </div>
