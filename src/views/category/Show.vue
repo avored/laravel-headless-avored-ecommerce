@@ -1,4 +1,4 @@
-<template>
+f<template>
   <div class="px-3">
     <div class="py-10">
       <ApolloQuery
@@ -10,12 +10,12 @@
         @done="category = {}"
       >
         <template slot-scope="{ result: { data } }" v-if="data">
-          <h1 class="text-2xl uppercase mb-8">{{ data.CategoryQuery.name }}</h1>
+          <h1 class="text-2xl uppercase mb-8">{{ data.getCategory.name }}</h1>
           <div class="px-4">
             <div class="block flex-wrap md:flex justify-between md:-mx-2">
-              <template v-if="products.length > 0">
+              <template v-if="data.getCategory.products.length > 0">
                   <product-card 
-                    v-for="(product, index) in data.CategoryQuery.products.data"
+                    v-for="(product, index) in data.getCategory.products"
                     :product="product"
                     :key="index">
 
@@ -43,7 +43,7 @@ export default {
   
   data() {
     return {
-      products: [1, 2, 3, 4]
+      
     }
   }
 }

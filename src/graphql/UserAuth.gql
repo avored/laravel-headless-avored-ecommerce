@@ -1,0 +1,14 @@
+mutation userAuth (
+    $email: String!,
+    $password: String!
+) {
+    userAuth (
+        email: $email,
+        password: $password
+    ) {
+        token_type
+        expires_in
+        access_token
+        refresh_token   
+    }
+}

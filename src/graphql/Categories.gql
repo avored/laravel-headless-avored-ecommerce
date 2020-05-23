@@ -1,7 +1,7 @@
 #import './CategoryFragment.gql'
 
-query AllCategories {
-  AllCategories {
+query categories {
+  categories {
     data {
       ...Category
     }

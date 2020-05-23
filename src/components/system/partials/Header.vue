@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :key="componentKey">
         <header class="flex items-center justify-between py-3 px-3 shadow border-gray-500 relative">
               <h3 class="text-xl text-red-900">
                   <router-link :to="{ name: 'home'}">
@@ -7,9 +7,9 @@
                   </router-link>
               </h3>
               <nav class="hidden md:flex">
-                    <template v-if="!isNil(AllCategories) && AllCategories.data.length > 0" >
+                    <template v-if="!isNil(categories) && categories.data.length > 0" >
                         <router-link :to="{ name: 'category.show', params: { slug: category.slug }}"
-                            v-for="(category, index) in AllCategories.data" :key="index" 
+                            v-for="(category, index) in categories.data" :key="index" 
                             class="text-gray-800 hover:text-gray-500 py-3 px-6">
                             {{ category.name }}
                         </router-link>
@@ -22,10 +22,10 @@
                         class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Checkout
                     </router-link>
-                    <router-link :to="{name: 'login'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                    <router-link v-if="!isAuth()" :to="{name: 'login'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Login
                     </router-link>
-                    <router-link :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
+                    <router-link v-if="!isAuth()"  :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
                         Register
                     </router-link>
                     <router-link :to="{name: 'account.dashboard'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
@@ -41,20 +41,28 @@
     </div>
 </template>
 <script>
+import {AUTH_TOKEN} from '@/constants/index'
 import isNil from 'lodash/isNil'
-import AllCategories from '@/graphql/Categories.gql'
+import categories from '@/graphql/Categories.gql'
 
 export default {
     data() {
         return {
-            
+            componentKey: 0,
         }
     },
     apollo: {
-         AllCategories: AllCategories,
+         categories: categories,
     },
     methods: {
        isNil,
+       isAuth() {
+            const accessToken = localStorage.getItem(AUTH_TOKEN)
+            return !isNil(accessToken)
+       }
+    },
+    mounted() {
+        
     }
 }
 </script>

@@ -1,11 +1,11 @@
-<template>
+<template @forceUpdate="forceUpdate">
     <div class="px-5">
         <div class="bg-gray-200">
             <div class="bg-white flex flex-col">
                 
-                <app-header></app-header>
+                <app-header :key="headerComponentKey"></app-header>
                 <main class="flex jusitfy-between items-center py-10">
-                    <slot/>
+                    <slot />
                 </main>
                 <app-footer></app-footer>
             </div>
@@ -22,10 +22,14 @@ export default {
     },
     data () {
         return {
-          
+            headerComponentKey: 0
         }
     },
     methods: {
+        forceUpdate() {
+            console.log('event')
+            this.headerComponentKey += 1
+        }
     }
 }
 </script>

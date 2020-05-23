@@ -1,8 +1,8 @@
-import {AUTH_TOKEN} from '../constants/index';
-import isNil from 'lodash/isNil';
+import {AUTH_TOKEN} from '@/constants/index'
+import isNil from 'lodash/isNil'
 
 export default function() {
-    let accessToken = localStorage.getItem(AUTH_TOKEN);
+    let accessToken = localStorage.getItem(AUTH_TOKEN)
     
-    return !isNil(accessToken);
+    return !isNil(accessToken)
 }

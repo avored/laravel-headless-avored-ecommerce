@@ -1,16 +1,16 @@
 #import './CategoryFragment.gql'
 
 query GetCategory($slug: String!) {
-  CategoryQuery(slug: $slug) {
+  getCategory(slug: $slug) {
       ...Category
       products {
-        data {
+       
           id
           name
           slug
           price
           main_image_url
         }
-      }
+     
   }
 }

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Guest from '../middleware/guest'
 import Auth from '../middleware/auth'
+import isNil from 'lodash/isNil'
 
 Vue.use(VueRouter)
 
@@ -71,6 +72,36 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes
+})
+
+// GLobal BEFORE hooks:
+router.beforeEach((to, from, next) => { 
+  
+  if (!isNil(to.meta.middleware))
+  {
+      Object.keys(to.meta.middleware).map(function(objectKey) {
+          if (objectKey === "guest") {
+            if (to.meta.middleware[objectKey](to))
+            {
+              next();
+            } else {
+              next()
+            }
+          }
+          if (objectKey === "auth") {
+            if (!to.meta.middleware[objectKey](to))
+            {
+                next('/login');
+            } else {
+              next()
+            }
+          }
+      });
+     
+    } else {
+      next()
+    }
+
 })
 
 export default router
