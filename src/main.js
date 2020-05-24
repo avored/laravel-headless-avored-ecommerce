@@ -6,6 +6,7 @@ import AppLayout from './layouts/App.vue'
 
 
 import './assets/tailwind.css'
+import i18n from './i18n'
 
 
 Vue.config.productionTip = false
@@ -15,5 +16,6 @@ Vue.component('app-layout', AppLayout)
 new Vue({
   router,
   apolloProvider: createProvider(),
+  i18n,
   render: h => h(App)
 }).$mount('#app')

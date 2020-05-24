@@ -17,6 +17,7 @@
                 </div>
             
                 <button 
+                    @click="addToCartOnClick"
                     class="block mt-3 text-white text-xs py-3 px-10 rounded uppercase  shadow bg-gray-700 hover:bg-red-700 focus:shadow-outline focus:outline-none">
                     Add To Cart
                 </button>
@@ -25,10 +26,31 @@
     </div>
 </template>
 <script>
+import {CART_ITEM} from '@/constants/index'
+import findIndex from 'lodash/findIndex'
+
 export default {
     name: 'product-card',
     props: {
         product: { type: Object }
+    },
+    methods: {
+        addToCartOnClick() {
+            let cartItems = JSON.parse(localStorage.getItem(CART_ITEM)) ?? []
+            const itemIndex = findIndex(cartItems, (item) => item.id === this.product.id)
+            
+            if (itemIndex < 0) {
+                const cartItem = {
+                    ...this.product,
+                    qty: 1
+                }
+                cartItems.push(cartItem)
+            } else {
+                const cartItem = cartItems[itemIndex]
+                cartItem.qty += 1
+            }
+            localStorage.setItem(CART_ITEM, JSON.stringify(cartItems))   
+        }
     }
 }
 </script>

@@ -3,7 +3,7 @@
         <header class="flex items-center justify-between py-3 px-3 shadow border-gray-500 relative">
               <h3 class="text-xl text-red-900">
                   <router-link :to="{ name: 'home'}">
-                    <img alt="AvoRed logo" class="w-8 h-8 inline-block"  src="@/assets/logo.svg" /> voRed
+                    <img alt="AvoRed logo" class="w-8 h-8 inline-block"  src="@/assets/logo.svg" /> {{ $t('avored') }}
                   </router-link>
               </h3>
               <nav class="hidden md:flex">
@@ -15,21 +15,21 @@
                         </router-link>
                     </template>
                     <router-link :to="{name: 'cart.show'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
-                        Cart
+                        {{ $t('cart') }}
                     </router-link>
                     <router-link 
                         :to="{name: 'checkout.show'}" 
                         class="text-gray-800 hover:text-gray-500 py-3 px-6">
-                        Checkout
+                        {{ $t('checkout') }}
                     </router-link>
                     <router-link v-if="!isAuth()" :to="{name: 'login'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
-                        Login
+                        {{ $t('login') }}
                     </router-link>
                     <router-link v-if="!isAuth()" :to="{name: 'register'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
-                        Register
+                        {{ $t('register') }}
                     </router-link>
                     <router-link v-if="isAuth()" :to="{name: 'account.dashboard'}" class="text-gray-800 hover:text-gray-500 py-3 px-6">
-                        Account
+                        {{ $t('account') }}
                     </router-link>
               </nav>
               <button class="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">

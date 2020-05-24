@@ -2,7 +2,7 @@
     <div class="px-5">
         <div class="bg-gray-200">
             <div class="bg-white flex flex-col">
-                
+                    <button @click="forceUpdate" >Test</button>
                 <app-header :key="headerComponentKey"></app-header>
                 <main class="flex jusitfy-between items-center py-10">
                     <slot />
@@ -26,8 +26,9 @@ export default {
         }
     },
     methods: {
+
         forceUpdate() {
-            console.log('event')
+            console.log('event', this.headerComponentKey)
             this.headerComponentKey += 1
         }
     }
